@@ -1,0 +1,36 @@
+{
+	"manifest_version": 2,
+    "name": "SAT Vocab",
+    "version": "0.1",
+
+    "description": "",
+    "icons": {
+        "16": "img/icons/16.png",
+        "48": "img/icons/48.png",
+        "128": "img/icons/128.png"
+    },
+
+    "browser_action": {
+        "default_icon": "img/icons/19.png",
+        "default_title": "SAT Vocab",
+        "default_popup": "popup.html"
+    },
+    "permissions": [ "tabs", "http://*/*", "https://*/*" ],
+
+    "content_scripts": [ {
+        "matches": [ "http://*/*", "https://*/*", "ftp://*/*" ],
+        // "exclude_globs": [ "",  "" ],
+        "js": [ "js/content_script.js", "js/libs/jquery-1.7.1.min.js" ],
+        "css": [ "css/content_script.css" ],
+        "permissions": [ "tabs" ],
+        "run_at": "document_end"
+    } ],
+    "options_page": "options.html",
+    "background":
+	{
+	    "page": "background.html"
+	}
+
+    //"update_url": ""
+}
+
