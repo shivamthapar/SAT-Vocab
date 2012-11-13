@@ -7,9 +7,13 @@
 		border: 1px black solid;
 		display: none;
 	}
+	.card{
+		display: none;
+	}
 
 </style>
 <script type='text/javascript' src='js/libs/jquery-1.7.1.min.js'></script>
+<script type='text/javascript' src='js/CardMaker.js'></script>
 <script type='text/javascript' src='js/QuizletFetcher.js'></script>
 <script type='text/javascript' src='js/other.js'></script>
 
@@ -30,7 +34,12 @@
 </div>
 <div id= "set" class= "screen">
 	<h3>Set</h3>
-	<p id= "terms"></p>
+	<div class= "template" id= "template" style="display: none">
+		<button class="prev" onclick="prevButton()">Previous</button>
+		<h4 class= "term">Term</h4>
+		<p class= "def">Definition</p>
+		<button id="next" onclick= "nextButton()">Next</button>
+	</div>
 </div>
 
 <div id="json">

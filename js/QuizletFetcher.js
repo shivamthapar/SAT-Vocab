@@ -2,12 +2,15 @@ function QuizletFetcher(numTerms){
 	var self=this;
 	this.words=[];
 	this.wordsNeeded=numTerms;
+	this.cardMaker= new CardMaker();
+	this.first=true;
 	this.getAllWords = function(){
 		$.getJSON(self.makeUrl('https://api.quizlet.com/2.0/search/sets?q=SAT%20100%20Words'), function(data) {
 			var setIds=self.getDifferentSets(data, self.wordsNeeded).ids;
 			for(var i=0; i<setIds.length; i++){
 				self.getSetTerms(setIds[i]);
-			}		
+			}	
+			return self.words;	
 		});
 	}
 	this.getDifferentSets= function(data, num){
@@ -20,7 +23,6 @@ function QuizletFetcher(numTerms){
 				obj.wordsFound+=data.sets[currSet].term_count;
 				currSet++;
 		}
-		console.log(obj);
 		return obj;
 	}
 	this.getSetTerms= function(id){
@@ -37,12 +39,10 @@ function QuizletFetcher(numTerms){
 				terms.push(word);
 			}
 			for(var i=0;i<terms.length;i++){
-				/*var word= {"term":terms[i].term, "definition":terms[i].definition};
-				alert(i);
-
+				var word= {"term":terms[i].term, "definition":terms[i].definition};
 				self.words.push(word);
-				*/
-				$("#json").append(terms[i].term+": "+terms[i].definition+"<br>");
+				self.cardMaker.createCard(terms[i].term, terms[i].definition,self.first);
+				self.first=false;
 			}
 			self.wordsNeeded-=numTerms;
 		});
@@ -53,4 +53,6 @@ function QuizletFetcher(numTerms){
 		else
 			return base+"?client_id=UnFvAtV9uG&whitespace=1&callback=?";
 	}
+	this.getAllWords();
+
 }
