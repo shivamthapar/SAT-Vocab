@@ -63,6 +63,9 @@ function QuizletFetcher(numTerms){
 				self.first=false;
 			}
 			self.wordsNeeded-=numTerms;
+			if(self.wordsNeeded==0){
+				showScreen("set");
+			}
 		});
 	}	
 	/**

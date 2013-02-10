@@ -1,48 +1,43 @@
 <html>
-<head>
-<style>
-	.screen{
-		width: 200px;
-		height: 200px;
-		border: 1px black solid;
-		display: none;
-	}
-	.card{
-		display: none;
-	}
-
-</style>
-<script type='text/javascript' src='js/libs/jquery-1.7.1.min.js'></script>
-<script type='text/javascript' src='js/CardMaker.js'></script>
-<script type='text/javascript' src='js/QuizletFetcher.js'></script>
-<script type='text/javascript' src='js/other.js'></script>
-
-</head>
-<body>
-<div id="home" class="screen">
-	<h3>Home</h3>
-	<a id="new_button">New Set</a>
-</div>
-<div id="newSet" class="screen">
-	<h3>New Set</h3>
-	<label>Number of Terms: </label><input type= "text" id="numTerms" />
-	<input type="submit" id= "fetch_button" value="Create Set">
-</div>
-<div id= "loading" class= "screen">
-	<h3>Loading</h3>
-	<img src= "img/ajax-loader.gif"></img>
-</div>
-<div id= "set" class= "screen">
-	<h3>Set</h3>
-	<div class= "template" id= "template" style="display: none">
-		<button class="prev" onclick="prevButton()">Previous</button>
-		<h4 class= "term">Term</h4>
-		<p class= "def">Definition</p>
-		<button id="next" onclick= "nextButton()">Next</button>
-	</div>
-</div>
-
-<div id="json">
-</div>
-</body>
+	<head>
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Walter+Turncoat' rel='stylesheet' type='text/css'>
+		<title></title>
+	</head>
+	<body>
+		<div id="main">
+			<div id="title">
+				<a id="back"><img src= "img/back.png"></a>
+				<h3></h3>
+			</div>
+			<div id="home" class="screen" data-title="SAT Vocab">
+				<a class= "button" id="new_button">New Set!</a>
+			</div>
+			<div id="newSet" class="screen" data-title="New Set">
+				<label>Number of Terms:</label> <input type="text" id="numTerms" size="3" maxlength="3"><br>
+				<input class= "button" type="submit" id="fetch_button" value="Create Set">
+			</div>
+			<div id="loading" class="screen" data-title="Fetching...">
+				<img id="ajaxload" src="img/ajax-loader3.gif">
+			</div>
+			<div id="set" class="screen" data-title="Study">
+				<div class="template" id="template" style="display: none">
+					<button class="prev">&lt;</button>
+					<h4 class="term">
+						Term
+					</h4><br/>
+					<p class="def">
+						Definition
+					</p><button class="next">&gt;</button>
+				</div>
+			</div>
+		</div>
+		<div id="json"></div><!--Scripts-->
+		<script type='text/javascript' src='js/libs/jquery-1.7.1.min.js'>
+</script><script type='text/javascript' src='js/CardMaker.js'>
+</script><script type='text/javascript' src='js/QuizletFetcher.js'>
+</script><script type='text/javascript' src='js/other.js'>
+</script>
+	</body>
 </html>
