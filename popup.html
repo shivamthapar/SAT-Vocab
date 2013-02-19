@@ -12,11 +12,13 @@
 				<h3></h3>
 			</div>
 			<div id="home" class="screen" data-title="SAT Vocab">
-				<a class= "button" id="new_button">New Set!</a>
+				<button class= "button" id="new_button">New Set!</button><br/>
+				<button class= "button" id="load_button">Load Set!</button>
 			</div>
 			<div id="newSet" class="screen" data-title="New Set">
 				<label>Number of Terms:</label> <input type="text" id="numTerms" size="3" maxlength="3"><br>
-				<input class= "button" type="submit" id="fetch_button" value="Create Set">
+				<button class= "button" id="fetch_button">Create Set!</button><br>				
+				<label class= "error" id= "number_input"></label>
 			</div>
 			<div id="loading" class="screen" data-title="Fetching...">
 				<img id="ajaxload" src="img/ajax-loader3.gif">
@@ -31,8 +33,21 @@
 						Definition
 					</p><button class="next">&gt;</button>
 				</div>
+				<button class= "button" id= "saveSet">Save Set</button>
+			</div>
+			<div id= "saveScreen" class= "screen" data-title="Save Set">
+				<label>Name your set:</label><br>
+				<input id= "nameSet" type= "text"></input>
+				<button class= "button" id= "saveButton">Save!</button>
+			</div>
+			<div id= "loadScreen" class= "screen" data-title="Load Set">
+				<label id= "loadedSetTitle"></label><br>
+				<label id= "loadedSetCount"><span></span> terms</label><br>
+				<button class= "button" id= "loadSetButton">Study this set!</button>
 			</div>
 		</div>
+
+		
 		<div id="json"></div><!--Scripts-->
 		<script type='text/javascript' src='js/libs/jquery-1.7.1.min.js'>
 </script><script type='text/javascript' src='js/CardMaker.js'>
