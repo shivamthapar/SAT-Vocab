@@ -1,0 +1,142 @@
+html, body{
+	padding: 0px;
+	margin: 0px;
+	font-family: 'Open Sans';
+	width: 350px;
+	height: 225px;
+	overflow: hidden;
+	color: #111;
+}
+a{
+	color: white;
+	text-decoration: none;
+}
+a:visited{
+	color: white;
+	text-decoration: none;
+}
+a:hover{
+	color: orange;
+	text-decoration: none;
+}
+.button{
+	color: rgb(122, 122, 122);
+	cursor: pointer;
+	background: #E6E6E6;
+	font-size: 18px;
+	border: none;
+	font-family: 'Vollkorn', serif;
+	padding: 3px 10px;
+}
+.button:hover{
+	color: orange;
+}
+#main{
+	width: 350px;
+	height: 225px;
+	background: rgb(248, 248, 248);
+}
+#title{
+	height: 30px;
+	width: 100%;
+	
+	text-align: center;
+	background: #111;
+	margin: 0;
+	position: relative;
+	padding-top: 5px;
+}
+#title h3{
+	color: white;
+	font-weight: 400;
+	display: inline;
+	font-family: 'Vollkorn', serif;
+	position: relative;
+	font-size: 20px;
+}
+#back{
+	position: absolute;
+	left: 15px;
+	top: 5px;
+}
+.screen{
+	display: none;
+	margin: 0px;
+	height: 158px;
+}
+.card{
+	display: none;	
+	position: relative;
+	height: 100%;
+	width: 100%;
+	text-align: center;
+}
+input[type=text]{
+	text-align: center;
+	background: none;
+	border: none;
+	border-bottom: 1px solid #111;
+	font-family: 'Open Sans';
+
+	color: #111;
+}
+#number_input{
+	font-size: 12px;
+	color: red;
+	margin-top: 10px;
+}
+textarea:focus, input:focus{
+	outline: none;
+	border-bottom: 1px solid orange;
+}
+#ajaxload{
+	margin: 50px auto 0px auto;
+	width: 32px;
+	display: block;
+}
+.prev, .next{
+	position: absolute;
+	top: 20px;
+	background: none;
+	color: black;
+	font-family:'Walter Turncoat', cursive;
+	font-size: 40px;
+	border: none;
+	cursor: pointer;
+	font-family: 'Vollkorn', serif;
+}
+.prev:hover, .next:hover{
+	color: orange;
+}
+.prev-hover, .next-hover{
+	color: orange;
+}
+.prev{	
+	left: 0px;
+}
+.next{
+	right: 0px;
+}
+.term{
+	font-size: 20px;
+	margin: 0;
+	top:30px;
+	position: relative;
+	display: inline;
+	color: black;
+	font-family: 'Vollkorn', serif;
+}
+.def{
+	margin: 0;
+	top:35px;
+	position: relative;
+	color: #353535;
+	font-family: 'Open Sans', sans-serif;
+	width: 90%;
+	margin: 0 auto;
+}
+#saveSet{
+	bottom: 0px;
+	position: absolute;
+	z-index: 1000;
+}
