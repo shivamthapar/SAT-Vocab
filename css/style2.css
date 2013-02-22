@@ -20,7 +20,6 @@ a:hover{
 	text-decoration: none;
 }
 .button{
-	color: rgb(122, 122, 122);
 	cursor: pointer;
 	background: #E6E6E6;
 	font-size: 18px;
@@ -29,7 +28,8 @@ a:hover{
 	padding: 3px 10px;
 }
 .button:hover{
-	color: orange;
+	color: black;
+	background: #FFCF54;
 }
 #main{
 	width: 350px;
@@ -79,6 +79,7 @@ input[type=text]{
 	font-family: 'Open Sans';
 
 	color: #111;
+	font-size: 18px;
 }
 #number_input{
 	font-size: 12px;
