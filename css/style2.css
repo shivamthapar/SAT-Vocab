@@ -5,7 +5,7 @@ html, body{
 	width: 350px;
 	height: 225px;
 	overflow: hidden;
-	color: #111;
+	color: white;
 }
 a{
 	color: white;
@@ -31,10 +31,14 @@ a:hover{
 	color: black;
 	background: #FFCF54;
 }
+
+#title {}
 #main{
 	width: 350px;
 	height: 225px;
-	background: rgb(248, 248, 248);
+	background: url(../img/bg.png);
+	background-position: center bottom;
+	position: relative;
 }
 #title{
 	height: 30px;
@@ -77,8 +81,7 @@ input[type=text]{
 	border: none;
 	border-bottom: 1px solid #111;
 	font-family: 'Open Sans';
-
-	color: #111;
+	color: white;
 	font-size: 18px;
 }
 #number_input{
@@ -99,7 +102,7 @@ textarea:focus, input:focus{
 	position: absolute;
 	top: 20px;
 	background: none;
-	color: black;
+	color: rgb(190, 190, 190);
 	font-family:'Walter Turncoat', cursive;
 	font-size: 40px;
 	border: none;
@@ -124,20 +127,29 @@ textarea:focus, input:focus{
 	top:30px;
 	position: relative;
 	display: inline;
-	color: black;
+	color: white;
 	font-family: 'Vollkorn', serif;
 }
 .def{
 	margin: 0;
 	top:35px;
 	position: relative;
-	color: #353535;
+	color: #E0E0E0;
 	font-family: 'Open Sans', sans-serif;
 	width: 90%;
 	margin: 0 auto;
 }
 #saveSet{
-	bottom: 0px;
+	bottom: 5px;
 	position: absolute;
 	z-index: 1000;
 }
+
+#home {
+    text-align: center;
+}
+#new_button {
+    margin-top: 40px;
+    margin-bottom: 10px;
+}
+#title {}
