@@ -9,39 +9,59 @@
 	<body>
 		<div id="main">
 			<div id="title">
-				<a id="back"><img src= "img/back.png"></a>
+				<span id="back"><img src= "img/back.png"></span>
 				<h3></h3>
 			</div>
 			<div id="home" class="screen" data-title="SAT Vocab">
-				<button class= "button" id="new_button">New Set!</button><br/>
-				<button class= "button" id="load_button">Load Set!</button>
+				<a title= "home"></a>
+				<a href="#newSet" class= "button" id="new_button">New Set!</a><br/>
+				<a href= "#loadSet" class= "button" id="load_button">Load Set!</a>
 			</div>
 			<div id="newSet" class="screen" data-title="New Set">
-				<label>Number of Terms:</label> <input type="text" id="numTerms" size="3" maxlength="3"><br>
-				<button class= "button" id="fetch_button">Create Set!</button><br>				
-				<label class= "error" id= "number_input"></label>
-			</div>
-			<div id="loading" class="screen" data-title="Fetching...">
-				<img id="ajaxload" src="img/ajax-loader3.gif">
+				<a title= "newSet"></a>
+				<div id= "normal">
+					<label>Number of Terms:</label> <input type="text" id="numTerms" size="3" maxlength="3"><br>
+					<button class= "button" id="fetch_button">Create Set!</button><br>				
+					<label class= "error" id= "number_input"></label>
+				</div>
+				<div id= "loading">
+					<img id="ajaxload" src="img/ajax-loader3.gif">
+				</div>
 			</div>
 			<div id="set" class="screen" data-title="Study">
-				<div class="template" id="template" style="display: none">
-					<button class="prev">&lt;</button>
+				<a title= "set"></a>
+				<div class="template" id="template" style="display: none">					
 					<h4 class="term">
 						Term
 					</h4><br/>
 					<p class="def">
 						Definition
-					</p><button class="next">&gt;</button>
+					</p>
 				</div>
-				<button class= "button" id= "saveSet">Save Set</button>
+				<div id= "studySettings">
+					<label for= "showBoth"><input type= "radio" name= "showFirst" value= "both" id = "showBoth" checked="checked"></input>Both sides</label>
+					<label for= "showTerm"><input type= "radio" name= "showFirst" id= "showTerm" value= "term"></input>Term First</label>
+					<label for= "showDefinition"><input type= "radio" name= "showFirst" id= "showDefinition" value= "definition"></input>Definition First</label>
+				</div>
+				<button class="prev">&lt;</button>
+				<button class="next">&gt;</button>
+				<a href="#saveScreen" class= "button" id= "saveSetButton"></a>
+				<button class= "button" id= "studySettingsButton"></button>
 			</div>
 			<div id= "saveScreen" class= "screen" data-title="Save Set">
-				<label>Name your set:</label><br>
-				<input id= "nameSet" type= "text"></input>
-				<button class= "button" id= "saveButton">Save!</button>
+				<a title= "saveScreen"></a>
+				<div id= "saveForm">
+					<label>Name your set:</label><br>
+					<input id= "nameSet" type= "text"></input>
+					<button class= "button" id= "saveButton">Save!</button>
+				</div>
+				<div id= "saveSuccess">
+					<img src= "img/check.png" />
+					Set Saved!
+				</div>
 			</div>
 			<div id= "loadScreen" class= "screen" data-title="Load Set">
+				<a title= "loadScreen"></a>
 				<label id= "loadedSetTitle"></label><br>
 				<label id= "loadedSetCount"><span></span> terms</label><br>
 				<button class= "button" id= "loadSetButton">Study this set!</button>

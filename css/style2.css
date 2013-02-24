@@ -6,6 +6,12 @@ html, body{
 	height: 225px;
 	overflow: hidden;
 	color: white;
+
+	
+}
+html{
+	background: url(../img/bg.png) no-repeat;
+	background-position: center bottom;
 }
 a{
 	color: white;
@@ -26,6 +32,10 @@ a:hover{
 	border: none;
 	font-family: 'Vollkorn', serif;
 	padding: 3px 10px;
+	display: inline-block;
+	color: black;
+	text-decoration: none;
+
 }
 .button:hover{
 	color: black;
@@ -36,9 +46,6 @@ a:hover{
 #main{
 	width: 350px;
 	height: 225px;
-	background: url(../img/bg.png);
-	background-position: center bottom;
-	position: relative;
 }
 #title{
 	height: 30px;
@@ -47,8 +54,10 @@ a:hover{
 	text-align: center;
 	background: #111;
 	margin: 0;
-	position: relative;
+	position: fixed;
+	top: 0px;
 	padding-top: 5px;
+	z-index: 1000;
 }
 #title h3{
 	color: white;
@@ -62,12 +71,15 @@ a:hover{
 	position: absolute;
 	left: 15px;
 	top: 5px;
+	cursor: pointer;
 }
 .screen{
-	display: none;
 	margin: 0px;
-	height: 158px;
-}
+	height: 195px;
+	position: relative;
+	top: 30px;
+	padding-top: 30px;
+	}
 .card{
 	display: none;	
 	position: relative;
@@ -79,7 +91,7 @@ input[type=text]{
 	text-align: center;
 	background: none;
 	border: none;
-	border-bottom: 1px solid #111;
+	border-bottom: 1px solid white;
 	font-family: 'Open Sans';
 	color: white;
 	font-size: 18px;
@@ -98,9 +110,12 @@ textarea:focus, input:focus{
 	width: 32px;
 	display: block;
 }
+#newSet #loading{
+	display: none;
+}
 .prev, .next{
 	position: absolute;
-	top: 20px;
+	top: 80px;
 	background: none;
 	color: rgb(190, 190, 190);
 	font-family:'Walter Turncoat', cursive;
@@ -108,6 +123,7 @@ textarea:focus, input:focus{
 	border: none;
 	cursor: pointer;
 	font-family: 'Vollkorn', serif;
+	z-index: 500;
 }
 .prev:hover, .next:hover{
 	color: orange;
@@ -129,6 +145,10 @@ textarea:focus, input:focus{
 	display: inline;
 	color: white;
 	font-family: 'Vollkorn', serif;
+	font-size: 20px;
+}
+.term-big{
+	font-size: 27px !important;
 }
 .def{
 	margin: 0;
@@ -138,11 +158,46 @@ textarea:focus, input:focus{
 	font-family: 'Open Sans', sans-serif;
 	width: 90%;
 	margin: 0 auto;
+	font-size: 15px;
 }
-#saveSet{
-	bottom: 5px;
+.def-big{
+	font-size: 18px !important;
+}
+#saveSetButton{
+	bottom:15px;
 	position: absolute;
-	z-index: 1000;
+	z-index: 500;
+	width: 16px;
+	height: 16px;
+	background: url(../img/save_icon.png);
+	background-repeat: no-repeat;
+	right: 37px;
+	padding: 0px;
+	margin: 0px;
+}
+#saveForm{
+}
+#saveSuccess{
+	display: none;
+	text-align:center;
+	color: orange;
+}
+#saveSuccess img{
+	margin: 40px auto 0px auto;
+	display: block;
+}
+#studySettingsButton{
+	bottom:15px;
+	position: absolute;
+	z-index: 500;
+	width: 16px;
+	height: 16px;
+	background-image: url(../img/options_icon.png);
+	background-color: transparent;
+	background-repeat: no-repeat;
+	right: 15px;
+	padding: 0px;
+	margin: 0px;
 }
 
 #home {
@@ -153,3 +208,29 @@ textarea:focus, input:focus{
     margin-bottom: 10px;
 }
 #title {}
+#studySettings{
+	position: absolute;
+	z-index: 1000;
+	width: 100px;
+	border-radius: 5px;
+	padding: 10px;
+	background: rgba(255, 255, 255, 0.84);
+	right: 10px;
+	bottom: 35px;
+	display: none;
+}
+#studySettings::before {
+	content: '';
+	position: absolute;
+	right: 10px;
+	bottom: -6px;
+	border-left: 6px solid transparent;
+	border-right: 6px solid transparent;
+	border-top: 6px solid rgba(255, 255, 255, 0.84);
+}
+#studySettings label{
+	float: left;
+	display: inline;
+	font-size: 10px;
+	color: black;
+}

@@ -79,9 +79,11 @@ function QuizletFetcher(/*numTerms||title,array*/){ //if numTerms->fetch numTerm
 					self.first=false;
 				}
 				self.wordsNeeded-=numTerms;
-				if(self.wordsNeeded==0){
-					showScreen("set");
-					activateArrowFunctions();
+				if(self.wordsNeeded==0){											
+					$("#newSet #normal").show();
+					$("#newSet #loading").hide();
+					showScreen("set");			
+					activateArrowFunctions();	
 				}
 			});
 		}	

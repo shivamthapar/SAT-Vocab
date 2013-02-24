@@ -1,4 +1,4 @@
-var fetcher,localSet;
+var fetcher,localSet, first, curr=-1, flipped=false;
 $(document).ready(function(){ //when page is ready
 	showScreen("home"); //show the home screen of the app first
 	$("#new_button").click(function(){
@@ -15,10 +15,14 @@ $(document).ready(function(){ //when page is ready
 		var num;
 		if((num=validateNumberInput(input)))
 		{
-			showScreen("loading");
+			$("#newSet #normal").hide();
+			$("#newSet #loading").show();
 			fetcher= new QuizletFetcher(num); // create new QuizletFetcher with num amount of words
 		}
 		
+	});
+	$("#back").live('click',function(){
+		window.history.back();
 	});
 
 	$("#load_button").click(function(){
@@ -38,46 +42,110 @@ $(document).ready(function(){ //when page is ready
 
 	$(".prev").live('click',prevButton);
 	$(".next").live('click',nextButton);
-	$("#saveSet").click(function(){
+	$("#saveSetButton").click(function(){
 		if(fetcher){
 			showScreen('saveScreen')
 		}
 	});
-	$("#saveButton").click(saveSet);
+	$("#saveButton").click(function(){
+		if(saveSet()){			
+			$("#saveForm").hide();
+			$("#saveSuccess").show();
+			setTimeout(function(){
+				showScreen('set');					
+				$("#saveForm").show();
+				$("#saveSuccess").hide();
+			}, 1000);
+		}
+
+	});
+	$("#studySettingsButton").toggle(function(){
+		$("#studySettings").show();
+		$("#studySettingsButton").css('background-image','url(../img/options_icon_select.png)');
+	},function(){
+		$("#studySettings").hide();
+		$("#studySettingsButton").css('background-image','url(../img/options_icon.png)');
+	});
+
+	$('.card').live('click',function(){
+		flip();	
+	});
+	$('input[name="showFirst"]').change(function(){
+		var value=$(this).attr('value');
+		first=value;
+		switch(value){
+			case "both":
+				$(".term").removeClass('term-big');
+				$(".def").removeClass('def-big');
+				$(".def").show();
+				$(".term").show();
+				break;
+			case "term":
+				$(".term").addClass('term-big');
+				$(".term").show();
+				$(".def").hide();
+				break;
+			case "definition":
+				$(".def").addClass('def-big');
+				$(".def").show();
+				$(".term").hide();
+				break;	
+		}	
+	});
 });
 
-
+function flip(){
+	if(curr>=0){
+		var termShowing= $(".card .term").eq(curr).css('display')!=="none";
+		var defShowing= $(".card .def").eq(curr).css('display')!=="none";
+		if(termShowing&&!defShowing){
+			$(".card .term").eq(curr).hide();
+			$(".card .def").eq(curr).show();
+		}
+		else if(defShowing && !termShowing){
+			$(".card .def").eq(curr).hide();
+			$(".card .term").eq(curr).show();
+		}
+		flipped=!flipped;
+	}
+}
 
 
 /**
  * [prevButton Show the previous card]
  */
 function prevButton(){
-	var curr=$(".card:visible").index()-2;
+	curr=$(".card:visible").first().index('.card');
+	if(flipped)
+		flip();
 	$(".card").hide();
 	if(curr>0)
 		$(".card").eq(curr-1).show();
 	else
 		$(".card").eq($(".card").size()-1).show();
-	return false;
+	curr=$(".card:visible").first().index('.card');
+	flipped=false;
 }
 /**
  * [nextButton Show the next card]
  */
 function nextButton(){
-	var curr=$(".card:visible").index()-1;
+	curr=$(".card:visible").first().index('.card');	
+	if(flipped)
+		flip();
 	$(".card").hide();
 	if(curr<$(".card").size()-1)
 		$(".card").eq(curr+1).show();
 	else
 		$(".card").eq(0).show();
-	return false;
+	curr=$(".card:visible").first().index('.card');
+	flipped=false;
 }
 
 function showScreen(name){
-	$(".screen").hide();
+	window.location.href="#"+name;
+	//$(".screen").hide();
 	$name=$("#"+name);
-	$name.show();
 	$("#title h3").html($name.attr('data-title'));
 }
 /*
@@ -129,7 +197,9 @@ function saveSet(){
 		var set= {'title':title, 'words':fetcher.words};
 		localStorage.getItem('set');
 		localStorage.setItem('set',JSON.stringify(set));
+		return true;
 	}
+	return false;
 }
 
 function getLocalSet(key){

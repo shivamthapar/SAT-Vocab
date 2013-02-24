@@ -17,6 +17,7 @@ function CardMaker(){
 		$(card).find('.def').text(definition);		
 		$(card).appendTo('#set.screen');
 		if(first) $(card).show();
+		curr=0;
 	}
 	
 }
