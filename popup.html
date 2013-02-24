@@ -8,17 +8,21 @@
 	</head>
 	<body>
 		<div id="main">
-			<div id="title">
-				<span id="back"><img src= "img/back.png"></span>
-				<h3></h3>
-			</div>
 			<div id="home" class="screen" data-title="SAT Vocab">
-				<a title= "home"></a>
-				<a href="#newSet" class= "button" id="new_button">New Set!</a><br/>
-				<a href= "#loadSet" class= "button" id="load_button">Load Set!</a>
+			<a title= "home"></a>					
+				<div id="title">
+					<span id="back"></span>
+					<h3>SAT Vocab</h3>
+				</div>
+				<a href="#newSet" class= "button link" id="new_button">New Set!</a><br/>
+				<a href= "#loadSet" class= "button link" id="load_button">Load Set!</a>
 			</div>
 			<div id="newSet" class="screen" data-title="New Set">
 				<a title= "newSet"></a>
+				<div id="title">
+					<span id="back"></span>
+					<h3>New Set</h3>
+				</div>
 				<div id= "normal">
 					<label>Number of Terms:</label> <input type="text" id="numTerms" size="3" maxlength="3"><br>
 					<button class= "button" id="fetch_button">Create Set!</button><br>				
@@ -30,6 +34,10 @@
 			</div>
 			<div id="set" class="screen" data-title="Study">
 				<a title= "set"></a>
+				<div id="title">
+					<span id="back"></span>
+					<h3>Study</h3>
+				</div>
 				<div class="template" id="template" style="display: none">					
 					<h4 class="term">
 						Term
@@ -45,11 +53,16 @@
 				</div>
 				<button class="prev">&lt;</button>
 				<button class="next">&gt;</button>
-				<a href="#saveScreen" class= "button" id= "saveSetButton"></a>
+				<a href="#saveScreen" class= "button link" id= "saveSetButton"></a>
+				<a href="#quizScreen" class= "button link" id= "goToQuizButton"></a>
 				<button class= "button" id= "studySettingsButton"></button>
 			</div>
 			<div id= "saveScreen" class= "screen" data-title="Save Set">
 				<a title= "saveScreen"></a>
+				<div id="title">
+					<span id="back"></span>
+					<h3>Save Set</h3>
+				</div>
 				<div id= "saveForm">
 					<label>Name your set:</label><br>
 					<input id= "nameSet" type= "text"></input>
@@ -62,9 +75,20 @@
 			</div>
 			<div id= "loadScreen" class= "screen" data-title="Load Set">
 				<a title= "loadScreen"></a>
+				<div id="title">
+					<span id="back"></span>
+					<h3>Load Set</h3>
+				</div>
 				<label id= "loadedSetTitle"></label><br>
 				<label id= "loadedSetCount"><span></span> terms</label><br>
 				<button class= "button" id= "loadSetButton">Study this set!</button>
+			</div>
+			<div id="quizScreen" class= "screen" data-title="Set Quiz">
+				<a title= "quizScreen"></a>
+				<div id="title">
+					<span id="back"></span>
+					<h3>Set Quiz</h3>
+				</div>
 			</div>
 		</div>
 

@@ -54,7 +54,7 @@ a:hover{
 	text-align: center;
 	background: #111;
 	margin: 0;
-	position: fixed;
+	position: absolute;
 	top: 0px;
 	padding-top: 5px;
 	z-index: 1000;
@@ -72,6 +72,9 @@ a:hover{
 	left: 15px;
 	top: 5px;
 	cursor: pointer;
+	background-image: url(../img/back.png);
+	width: 20px;
+	height: 20px;
 }
 .screen{
 	margin: 0px;
@@ -86,6 +89,7 @@ a:hover{
 	height: 100%;
 	width: 100%;
 	text-align: center;
+	left: 0px;
 }
 input[type=text]{
 	text-align: center;
@@ -175,6 +179,18 @@ textarea:focus, input:focus{
 	padding: 0px;
 	margin: 0px;
 }
+#goToQuizButton{
+	bottom:15px;
+	position: absolute;
+	z-index: 500;
+	width: 16px;
+	height: 16px;
+	background: url(../img/quiz_icon.png);
+	background-repeat: no-repeat;
+	right: 60px;
+	padding: 0px;
+	margin: 0px;
+}
 #saveForm{
 }
 #saveSuccess{
@@ -202,6 +218,7 @@ textarea:focus, input:focus{
 
 #home {
     text-align: center;
+    top: 0px;
 }
 #new_button {
     margin-top: 40px;

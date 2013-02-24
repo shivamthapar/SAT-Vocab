@@ -10,6 +10,9 @@ $(document).ready(function(){ //when page is ready
 	        $("#fetch_button").click();
 	    }
 	});
+	$("a.link").live('click',function(){
+		showScreen($(this).attr('href').substring(1));
+	});
 	$("#fetch_button").click(function(){
 		var input=$("#numTerms").val();
 		var num;
@@ -82,11 +85,13 @@ $(document).ready(function(){ //when page is ready
 				break;
 			case "term":
 				$(".term").addClass('term-big');
+				$(".def").addClass('def-big');
 				$(".term").show();
 				$(".def").hide();
 				break;
 			case "definition":
 				$(".def").addClass('def-big');
+				$(".term").addClass('term-big');
 				$(".def").show();
 				$(".term").hide();
 				break;	
@@ -146,7 +151,6 @@ function showScreen(name){
 	window.location.href="#"+name;
 	//$(".screen").hide();
 	$name=$("#"+name);
-	$("#title h3").html($name.attr('data-title'));
 }
 /*
 *[validateNumberInput] validate number input
