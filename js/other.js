@@ -7,13 +7,15 @@ $(document).ready(function(){ //when page is ready
 	});
 	$('#numTerms').on('keyup', function(e) {
 	    if (e.which == 13) {
+	    	$("#numTerms").blur();
 	        $("#fetch_button").click();
 	    }
 	});
 	$("a.link").live('click',function(){
 		showScreen($(this).attr('href').substring(1));
 	});
-	$("#fetch_button").click(function(){
+	$("#fetch_button").click(function(e){
+		e.preventDefault();
 		var input=$("#numTerms").val();
 		var num;
 		if((num=validateNumberInput(input)))
@@ -22,6 +24,7 @@ $(document).ready(function(){ //when page is ready
 			$("#newSet #loading").show();
 			fetcher= new QuizletFetcher(num); // create new QuizletFetcher with num amount of words
 		}
+		return false;
 		
 	});
 	$("#back").live('click',function(){
@@ -148,9 +151,12 @@ function nextButton(){
 }
 
 function showScreen(name){
-	window.location.href="#"+name;
-	//$(".screen").hide();
-	$name=$("#"+name);
+	if(name!==null){
+		window.location.href="#"+name;
+		document.getElementById(name).scrollIntoView(true);
+		//$(".screen").hide();
+		$name=$("#"+name);
+	}
 }
 /*
 *[validateNumberInput] validate number input

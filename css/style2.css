@@ -13,6 +13,9 @@ html{
 	background: url(../img/bg.png) no-repeat;
 	background-position: center bottom;
 }
+.link{
+	color: black !important;
+}
 a{
 	color: white;
 	text-decoration: none;

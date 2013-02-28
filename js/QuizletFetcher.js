@@ -14,9 +14,9 @@ function QuizletFetcher(/*numTerms||title,array*/){ //if numTerms->fetch numTerm
 			for(var i=0;i<self.words.length;i++){
 				self.cardMaker.createCard(self.words[i].term, self.words[i].definition,self.first);
 				self.first=false;
-				showScreen("set");
-				activateArrowFunctions();
-			}
+			}			
+			showScreen("set");
+			activateArrowFunctions();
 		}
 		this.makeCardsFromWords();
 	}
@@ -82,7 +82,7 @@ function QuizletFetcher(/*numTerms||title,array*/){ //if numTerms->fetch numTerm
 				if(self.wordsNeeded==0){											
 					$("#newSet #normal").show();
 					$("#newSet #loading").hide();
-					showScreen("set");			
+					showScreen("set");	
 					activateArrowFunctions();	
 				}
 			});
