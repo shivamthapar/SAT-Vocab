@@ -11,7 +11,7 @@
     },
 
     "browser_action": {
-        "default_icon": "img/icons/19.png",
+        "default_icon": "img/icons/32.png",
         "default_title": "SAT Vocab",
         "default_popup": "popup.html"
     },

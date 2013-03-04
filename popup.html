@@ -87,17 +87,31 @@
 				<a title= "quizScreen"></a>
 				<div id="title">
 					<span id="back"></span>
-					<h3>Set Quiz</h3>
+					<h3>Set Quiz</h3>					
 				</div>
+				<div class="quiz_mc_template" id="quiz_mc_template" style="display: none">	
+					<h4 class= "question mc_question"></h4>
+					<label for="mc_a_1"><input type= "radio" name= "mc_answer" id= "mc_a_1" value="" /></label>
+					<label for="mc_a_2"><input type= "radio" name= "mc_answer" id= "mc_a_2" value="" /></label>
+					<label for="mc_a_3"><input type= "radio" name= "mc_answer" id= "mc_a_3" value="" /></label>
+					<label for="mc_a_4"><input type= "radio" name= "mc_answer" id= "mc_a_4" value="" /></label>
+				</div>
+				<div class="quiz_frq_template" id="quiz_frq_template" style="display: none">	
+					<h4 class= "question frq_question"></h4>
+					<input type= "text" name="frq_answer" id= "frq_answer" placeholder="Type word here..." />
+				</div>					
+					
+				<button class="q_prev">&lt;</button>
+				<button class="q_next">&gt;</button>
 			</div>
 		</div>
 
 		
 		<div id="json"></div><!--Scripts-->
 		<script type='text/javascript' src='js/libs/jquery-1.7.1.min.js'>
-</script><script type='text/javascript' src='js/CardMaker.js'>
-</script><script type='text/javascript' src='js/QuizletFetcher.js'>
-</script><script type='text/javascript' src='js/other.js'>
-</script>
+</script><script type='text/javascript' src='js/QuizletFetcher.js'></script>
+<script type='text/javascript' src='js/other.js'></script>
+<script type='text/javascript' src='js/CardMaker.js'></script>
+<script type='text/javascript' src='js/QuizMaker.js'></script>
 	</body>
 </html>
