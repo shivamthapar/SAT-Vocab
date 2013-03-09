@@ -17,10 +17,7 @@ Maybe features:
 * Create new sets and save to Quizlet
 
 ###Screenshots
-![Home Screen](/screenshots/home.png)
-Home Screen
-![Load Set](/screenshots/loadset.png)
-Load Set
-![Flashcards Screen](/screenshots/set.png)
-![Flashcards Screen with Settings Panel](/screenshots/set-settings.png)
-Flashcards Mode
+![Home Screen](/screenshots/home-formatted.png)
+![Load Set](/screenshots/loadset-formatted.png)
+![Flashcards Screen](/screenshots/set-formatted.png)
+![Flashcards Screen with Settings Panel](/screenshots/set-settings-formatted.png)
